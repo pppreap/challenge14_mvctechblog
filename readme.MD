@@ -71,6 +71,7 @@ THEN is **able to view comments but is prompted to log in again before I can add
 These are images which demonstrates the application functionality:  
 
 Login/SignUp, Logout, View/Delete/Add/Update Post Content, Add/Update/Delete Comment, Navigate to Dashboard
+
 ![Start of the application](./assets/)
 ![Saved Posts](./assets/)
 ![Click New Post](./assets/)
@@ -79,7 +80,7 @@ Login/SignUp, Logout, View/Delete/Add/Update Post Content, Add/Update/Delete Com
 #### Links
 [Github Repository](https://github.com/pppreap/challenge14_mvctechblog) 
 ///
-[Link to Website](https://)
+[Blog Website](https://)
 
 #### Credits
 User Story and Criteria from Michigan State University Full Stack Development Boot Camp.
