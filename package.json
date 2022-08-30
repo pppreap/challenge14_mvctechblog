@@ -1,0 +1,25 @@
+{
+  "name": "challenge14_mvctechblog",
+  "version": "1.0.0",
+  "description": "Using MVC paradigm in the code architectural structure, Handlebars.js as the templating language, Swquelize as the ORM and express-session npm packgae for authentication, a CMS-style blog site similar to a Wordpress site, will be built for developers to publish their blog posts and comment on other developer's post as well.",
+  "main": "connection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pppreap/challenge14_mvctechblog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pppreap/challenge14_mvctechblog/issues"
+  },
+  "homepage": "https://github.com/pppreap/challenge14_mvctechblog#readme",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.4"
+  }
+}
