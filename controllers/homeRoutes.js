@@ -1,14 +1,12 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { Post, Comment, User } = require('../models');
-const sequelize = require('../config/connection')
 
 //route to get homepage, all posts
 router.get('/', (req, res) => {
   console.log(req.session);
   Post.findAll({
-    attributes:[
-        'id' , 'title', 'created_at', 'post_content'
-    ],
+    attributes:['id' , 'title', 'created_at', 'post_content'],
     include:[
         {
         model: Comment,
@@ -63,9 +61,9 @@ router.get('/signup', (req,res)=> {
 router.get('/post/:id', (req, res) => {
   Post.findOne({
     where:{
-        req.params.id
+       id: req.params.id
     },
-    attributes:['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+    attributes:['id', 'title', 'created_at', 'post_content'],
     include: [
         {
             model: Comment,
@@ -93,7 +91,7 @@ router.get('/post/:id', (req, res) => {
       post, 
       logged_in: req.session.logged_in
     });
-})
+  })
   .catch (err=> {
     console.log(err);
     res.status(500).json(err);
