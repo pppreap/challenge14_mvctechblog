@@ -1,6 +1,6 @@
 # Module 14// Model-View-Controller (MVC) Challenge: Tech Blog
 
-Using MVC paradigm in the code architectural structure, Handlebars.js as the templating language, Swquelize as the ORM and express-session npm packgae for authentication, a CMS-style blog site similar to a Wordpress site, will be built for developers to publish their blog posts and comment on other developer's post as well.
+Using MVC paradigm in the code architectural structure, Handlebars.js as the templating language, Sequelize as the ORM and express-session npm packgae for authentication, a CMS-style blog site similar to a Wordpress site, will be built for developers to publish their blog posts and comment on other developer's post as well.
 
 Link to [Website Blog]:(https://)
 
