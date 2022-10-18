@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
  
 
 router.get('/:id', (req, res) => {
-    //access user model and use find one user by id
+    //access post model and use find one post by id
         Post.findOne({
           where: {
             id: req.params.id
