@@ -1,7 +1,21 @@
-<a href ="/dashboard" class="go-back"> Back to Dashboard</a>
-
-<section class="new-page">
+async function newFormHandler(event){
+    event.preventDefault();
     
-    </section>
-
-</article>
+    const title= document.querySelector(`input[name="post-title]`).value;
+    const post_text= document.querySelector(`textarea[name="post-text]`).value.;
+    
+ 
+        const response = await fetch('api/posts',{
+            method:'POST',
+            body: JSON.stringify({ title, content}),
+            headers: { 'Content-Type': 'application/json'}
+        });
+    
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert(response.statusText);
+        }
+    };
+    
+document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
