@@ -4,8 +4,14 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body , html {
+  color:orange;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 a {
     color:brown;
+    font-weight: bold;
 }
 
 h1 {
@@ -16,7 +22,7 @@ button {
   background-color: yellow;
 }
 
-#main-title {
+.main-title {
   color:purple;
 }
 

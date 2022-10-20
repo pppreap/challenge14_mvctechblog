@@ -5,7 +5,7 @@ async function newFormHandler(event){
     const post_text= document.querySelector('textarea[name="post-text"]').value;
     
  
-        const response = await fetch(`api/posts`,{
+        const response = await fetch(`/api/posts`, {
             method:'post',
             body: JSON.stringify({ title, post_text}),
             headers: { 'Content-Type': 'application/json'}
@@ -16,6 +16,6 @@ async function newFormHandler(event){
         } else {
             alert(response.statusText);
         }
-    };
+    }
     
 document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);

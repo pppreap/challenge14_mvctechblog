@@ -7,34 +7,40 @@
     <title>MVC Tech Blog</title>
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-      <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-    <h1> Share your thoughts on technology and coding</h1>
-      <nav>
-        <a href="/">Homepage</a>
+    <div>
+     <header>
+     <h3> Share your thoughts on technology and coding</h3>
+     <div>
+       <nav>
+         <a href="/">Homepage</a>
          <a href="/dashboard">Dashboard</a>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-           <a href="/logout">Logout</a>
-           <a href="/dashboard/create">Create Post</a>
-        <button class="no-button" id="logout">logout</button>
+        <a href="/" id="logout">Logout</a>
+    
         {{else}}
         <a href="/login">login</a>
         {{/if}}
       </nav>
-    </header>
+      </div>
+   
     <div>
       <h1 class="main-title">TECH BLOG</h1>
     </div>
     
-    <main class="container container-fluid mt-5">
+     </header>
+     
+    <main>
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
+
     <footer>
       Leave your tips!
     </footer>
+
   </div>
 
   <!-- Render script for logged in users only -->
@@ -42,6 +48,6 @@
   <script src="./js/logout.js"></script>
   {{/if}}
 
-
 </body>
+
 </html>
