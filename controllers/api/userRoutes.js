@@ -25,8 +25,8 @@ router.get('/:id', (req, res) => {
           },
           include:[
             {
-                model: Post,
-                attributes: [
+            model: Post,
+            attributes: [
                     'id','title', 'created_at', 'post_text'
                 ]
             },
@@ -34,12 +34,8 @@ router.get('/:id', (req, res) => {
             model: Comment,
             attributes:[
                 'id','comment_text', 'created_at'
-            ],
-            include:{
-                model: Post,
-                attributes:['title']   
+            ]
             }
-        }
         ]
 })
 .then(dbUserData=> {
@@ -67,7 +63,7 @@ router.post('/', (req, res) => {
     req.session.save(()=>{
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
-        req.session.loggedIn = true;
+        req.session.logged_in = true;
   
     res.json(dbUserData);
 })
@@ -102,7 +98,7 @@ router.post('/login', (req, res) => {
     req.session.save(()=>{
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
-        req.session.loggedIn = dbUserData.loggedIn = true;
+        req.session.logged_in = true;
 
         res.json({user: dbUserData, message: "Logged In Successfully!"});
  });
@@ -110,10 +106,10 @@ router.post('/login', (req, res) => {
  });
 
 router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
         req.session.destroy(()=>{
             res.status(204).end();
-        });
+        })
     } else {
         res.status(404).end();
     }
@@ -139,5 +135,24 @@ router.put('/:id', withAuth, (req, res) =>{
         res.status(500).json(err);
     });
 });
+
+router.delete('/:id', (req, res) => {
+    User.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No User found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+  });
 
 module.exports =router;
