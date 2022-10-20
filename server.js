@@ -8,8 +8,9 @@ const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ helpers });
+require('dotenv').config();
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -30,7 +31,8 @@ const sess = {
 };
 
 
-
+// Set up Handlebars.js engine with custom helpers
+const hbs = exphbs.create({ helpers });
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
