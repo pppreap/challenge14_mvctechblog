@@ -1,6 +1,5 @@
 <section>
-  <h1> Edit Post</h1>
-
+  <h3> Edit Post</h3>
 <form class="edit-post-form">
 
     <div>
@@ -10,7 +9,7 @@
      <div>
         
         Posted by you on {{format_date post.created_at}} |
-        {{post.comments.length}}  {{format_plural "comment" post.comments.length}}
+        {{post.comments.length}}  {{format_words "comment" post.comments.length}}
 
     </div>
     <div>
@@ -19,7 +18,7 @@
     </div>
     
     <button type ="submit">Save Changes</button> 
-    <button type ="submit" class="delete-btn">Delete </button> 
+    <button type ="button" class="delete-btn">Delete </button> 
     </form>
 
 </section>

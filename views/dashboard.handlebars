@@ -1,15 +1,15 @@
-<section class="new-post-area">
-    <button type="submit" class="btn" id="create-new-post"><a href="/dashboard/new">+ New Post</a></button>
-</section>
+
+<button type="submit"><a href="/dashboard/new"> + New Post</a></button>
+
 
 {{#if posts.length}}
 <section>
-    <h1> Dashboard</h1>
+    <h3> Dashboard</h3>
     <ul class="post-list">
     {{#each posts as |post|}}
     <li>
-        {{> post-info post}}
-        <a href="/dashboard/edit/{{post.id}}" class="edit-link"> Edit Post</a>
+        {{> dashboard-post-info post}}
+
     </li>
     {{/each}}
 
