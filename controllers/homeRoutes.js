@@ -6,7 +6,7 @@ const { Post, Comment, User } = require('../models');
 router.get('/', (req, res) => {
   console.log(req.session);
   Post.findAll({
-    attributes:['id' , 'title', 'created_at', 'post_content'],
+    attributes:['id' , 'title', 'created_at', 'post_text'],
     include:[
         {
         model: Comment,
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
     })
     .then(dbPostData=> {
     // Serialize data so the template can read it
-    const posts = dbPostData.map((post) => post.get({ plain: true }));
+    const posts = dbPostData.map(post => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
@@ -63,7 +63,7 @@ router.get('/post/:id', (req, res) => {
     where:{
        id: req.params.id
     },
-    attributes:['id', 'title', 'created_at', 'post_content'],
+    attributes:['id', 'title', 'created_at', 'post_text'],
     include: [
         {
             model: Comment,
@@ -87,7 +87,7 @@ router.get('/post/:id', (req, res) => {
    //serialize the data
    const post = dbPostData.get({plain:true});
    //pass data to template
-    res.render('single-post', { 
+    res.render('post', { 
       post, 
       logged_in: req.session.logged_in
     });

@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
             {
                 model: Post,
                 attributes: [
-                    'id','title', 'created_at', 'post_content'
+                    'id','title', 'created_at', 'post_text'
                 ]
             },
             {
@@ -60,17 +60,21 @@ router.post('/', (req, res) => {
     //access user model and use find one user by id
         User.Create({
             username: req.body.username,
-            email: req.body.email,
+            // email: req.body.email,
             password: req.body.password       
 })
 .then(dbUserData=> {
     req.session.save(()=>{
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
-        req.session.loggedIn = dbUserData.loggedIn = true;
+        req.session.loggedIn = true;
   
     res.json(dbUserData);
-});
+})
+})
+.catch(err => {
+    console.log(err);
+    res.status(500).json(err);
 
 });
 });
@@ -80,7 +84,8 @@ router.post('/login', (req, res) => {
     //access user model and use find one user by email
         User.findOne({
           where: {
-            email:req.body.email
+            // email:req.body.email
+            username:req.body.username
           }      
 })
 .then(dbUserData=> {

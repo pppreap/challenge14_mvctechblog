@@ -10,7 +10,7 @@ router.get('/', withAuth, (req, res) => {
             user_id: req.session.user_id
         },
         attributes:[
-            'id','title', 'created_at', 'post_content'
+            'id','title', 'created_at', 'post_text'
         ],
         include:[
             {
@@ -31,7 +31,7 @@ router.get('/', withAuth, (req, res) => {
     })
     .then(dbPostData=> {
     // Serialize data so the template can read it
-    const posts = dbPostData.map((post) => post.get({ plain: true }));
+    const posts = dbPostData.map(post => post.get({ plain: true }));
     // Pass serialized data and session flag into template
     res.render('dashboard', { 
       posts, logged_in: true
