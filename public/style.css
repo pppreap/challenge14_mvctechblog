@@ -1,0 +1,63 @@
+* {
+    box-sizing:border-box;
+    color:#2A52BE;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+title {
+    color:brown;
+}
+
+h1 {
+    color:purple;
+}
+
+
+#logout-btn {
+    border-radius: 10px;
+    background-color: beige;
+}
+
+.delete-btn {
+    background-color: #a72525;
+  }
+
+textarea, input {
+    padding:1%;
+    border-radius: 10px;
+    border: 1px solid rgb(204, 204, 204);
+  }
+
+
+  form label {
+    display: block;
+  }
+
+  .post {
+    color: orange;
+  }
+
+  .new-post-form input {
+    width: 200px;
+  }
+
+  .post-text {
+    color:blanchedalmond;
+  }
+
+  .comment-form {
+    margin-bottom: 5%;
+  }
+
+  .edit-post-form {
+    margin-bottom: 10%;
+  }
+
+  footer {
+    border-top: 3px solid greenyellow;
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+    font-size: 75%;
+  }
