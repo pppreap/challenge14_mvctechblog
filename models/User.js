@@ -6,9 +6,9 @@ const bcrypt = require('bcrypt');
 //create User model
 class User extends Model {
     checkPassword(loginPw) {
-        return bcrypt.compareSync (loginPw, this.password);
+      return bcrypt.compareSync(loginPw, this.password);
     }
-}
+  }
 
 //define tables and columns and specifications
 User.init(
@@ -23,13 +23,13 @@ User.init(
         username: {
             type:DataTypes.STRING,
             allowNull: false,
-            unique: true
+    
         },
         password: {
             type:DataTypes.STRING,
             allowNull: false,
             validate: {
-                len:[5]
+                len:[5],
             }
         }
     },
@@ -48,7 +48,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user'
+    modelName: 'user',
  }
 );
 
