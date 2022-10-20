@@ -15,6 +15,7 @@ if (username && password) {
 
     if (response.ok) {
         document.location.replace('/dashboard');
+        console.log("pressed login");
     } else {
         alert(response.statusText);
     }
@@ -37,6 +38,7 @@ const signupFormHandler = async (event) => {
     
         if (response.ok) {
             document.location.replace('/');
+            console.log("pressed signup");
         } else {
             alert(response.statusText);
         }
