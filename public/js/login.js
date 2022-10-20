@@ -1,4 +1,6 @@
-async function loginFormHandler(event){
+
+
+const loginFormHandler = async (event) => {
 event.preventDefault();
 
 const username= document.querySelector(`#username-login`).value.trim();
@@ -20,7 +22,7 @@ if (username && password) {
 
 }
 
-async function signupFormHandler(event){
+const signupFormHandler = async (event) => {
     event.preventDefault();
     
     const username= document.querySelector(`#username-signup`).value.trim();
@@ -34,8 +36,7 @@ async function signupFormHandler(event){
         });
     
         if (response.ok) {
-            // document.location.replace('/');
-            document.location.reload();
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
