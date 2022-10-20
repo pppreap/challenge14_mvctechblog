@@ -22,6 +22,11 @@ button {
   background-color: yellow;
 }
 
+.tag {
+  font-size: 50%;
+  margin: 3px;
+}
+
 .main-title {
   color:purple;
 }
@@ -31,10 +36,6 @@ button {
     background-color: beige;
 }
 
-#no-button {
-  color:purple;
-  border-radius: 10px;
-}
 
 #comment{
   color:green;
