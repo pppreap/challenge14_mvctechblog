@@ -2,10 +2,11 @@
     box-sizing:border-box;
     color:#2A52BE;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+  
 }
 
-title {
+
+a {
     color:brown;
 }
 
@@ -13,12 +14,35 @@ h1 {
     color:purple;
 }
 
+button {
+  background-color: yellow;
+}
 
 #logout-btn {
     border-radius: 10px;
     background-color: beige;
 }
 
+#no-button {
+  color:purple;
+  border-radius: 10px;
+}
+
+#comment{
+  color:green;
+}
+
+#text {
+  color:aquamarine;
+}
+
+#post{
+  background-color: bisque;
+}
+
+#btn{
+  color:azure;
+}
 .delete-btn {
     background-color: #a72525;
   }
