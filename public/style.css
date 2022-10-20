@@ -2,9 +2,7 @@
     box-sizing:border-box;
     color:#2A52BE;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
 }
-
 
 a {
     color:brown;
@@ -57,10 +55,9 @@ textarea, input {
     border: 1px solid rgb(204, 204, 204);
   }
 
-
-  form label {
+  /* form label {
     display: block;
-  }
+  } */
 
   .post {
     color: orange;

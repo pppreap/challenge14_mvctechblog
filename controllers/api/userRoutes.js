@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
             {
             model: Post,
             attributes: [
-                    'id','title', 'created_at', 'post_text'
+                    'id','title', 'post_text', 'created_at', 
                 ]
             },
             {
@@ -43,7 +43,6 @@ router.get('/:id', (req, res) => {
         res.status(404).json({message:'No user found with this id!'});
         return;
     }
-    res.json(dbUserData);
 })
 .catch (err=> {
     console.log(err);
@@ -65,19 +64,18 @@ router.post('/', (req, res) => {
         req.session.username = dbUserData.username;
         req.session.logged_in = true;
   
-    res.json(dbUserData);
+    res.json(dbUserData)
 })
 })
 .catch(err => {
     console.log(err);
     res.status(500).json(err);
-
 });
 });
 
 //login
 router.post('/login', (req, res) => {
-    //access user model and use find one user by email
+    //access user model and use find one user by username
         User.findOne({
           where: {
             // email:req.body.email

@@ -8,21 +8,21 @@ Post.init(
   {
       //defining each column
       id: {
-          type:DataTypes.INTEGER,
+          type: DataTypes.INTEGER,
           allowNull: false,
           primaryKey: true,
           autoIncrement: true
       },
       title: {
-          type:DataTypes.STRING,
+          type: DataTypes.STRING,
           allowNull: false,
       },
       post_text: {
-          type:DataTypes.STRING,
+          type: DataTypes.STRING,
           allowNull: true,
       },
       user_id: {
-        type:DataTypes.INTEGER,
+        type: DataTypes.INTEGER,
         references: {
         model: 'user',
         key: 'id'

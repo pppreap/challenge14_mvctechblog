@@ -2,25 +2,25 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//GET  all users
+//GET  all posts
 router.get('/', (req, res) => {
-    console.log("=========");
+    // console.log("=========");
     Post.findAll({
-      attributes:[ "id", "title", "created_at", "post_text"],
-        order:[["created_at", "DESC"]],
+      attributes:[ 'id', 'title', 'post_text','created_at'],
+        order:[['created_at', 'DESC']],
         include:[
                  {
                 model: User,
-                attributes:["username"]
+                attributes:['username']
                 },
                 {
                 model: Comment,
-                attributes:["id", "comment_text", "post_id", "user_id", "created_at"],
+                attributes:['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
                 include:{
                     model: User,
-                    attributes:["username"]
+                    attributes:['username']
                     }
-                },
+                }
                 
                 ]
                 })
@@ -39,9 +39,7 @@ router.get('/:id', (req, res) => {
           where: {
             id: req.params.id
           },
-            attributes: [
-                    'id','title', 'created_at', 'post_text'
-                ],
+            attributes: [ 'id','title', 'post_text','created_at'],
                 include: [
                     {
                         model: User,
@@ -49,9 +47,7 @@ router.get('/:id', (req, res) => {
                     },
                     {
                         model: Comment,
-                        attributes:[
-                        'id','comment_text', 'created_at', 'post_id', 'user_id'
-                        ],
+                        attributes:[ 'id','comment_text', 'post_id', 'user_id','created_at'],
                          include: {
                             model: User,
                             attributes:['username']   
