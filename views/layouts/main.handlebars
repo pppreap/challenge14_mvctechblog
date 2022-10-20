@@ -12,27 +12,28 @@
     <header class="display-flex justify-space-between align-center p-2">
     <h1> Share your thoughts on technology and coding</h1>
       <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-          
         <a href="/">Homepage</a>
          <a href="/dashboard">Dashboard</a>
-         <a href="/dashboard/create">Create Post</a>
-            <a href="/login">Login</a>
-               <a href="/logout">Logout</a>
-      
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+           <a href="/logout">Logout</a>
+           <a href="/dashboard/create">Create Post</a>
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
       </nav>
     </header>
+    <div>
+      <h1 class="main-title">TECH BLOG</h1>
+    </div>
+    
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
     <footer>
-      
+      Leave your tips!
     </footer>
   </div>
 

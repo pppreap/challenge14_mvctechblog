@@ -18,6 +18,10 @@ button {
   background-color: yellow;
 }
 
+#main-title {
+  color:purple;
+}
+
 #logout-btn {
     border-radius: 10px;
     background-color: beige;
