@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, Comment, User } = require('../models');
+const { Post, User, Comment} = require('../models');
 
 //route to get homepage, all posts
 router.get('/', (req, res) => {
@@ -48,13 +48,13 @@ router.get('/login', (req,res)=> {
 });
 
 //route to sign up
-router.get('/signup', (req,res)=> {
-    if(req.session.logged_in) {
-     res.redirect('/');
-     return;
-    }
-    res.render('signup');
- });
+// router.get('/signup', (req,res)=> {
+//     if(req.session.logged_in) {
+//      res.redirect('/');
+//      return;
+//     }
+//     res.render('signup');
+//  });
  
 
 //route to get a single post
@@ -87,7 +87,7 @@ router.get('/post/:id', (req, res) => {
    //serialize the data
    const post = dbPostData.get({plain:true});
    //pass data to template
-    res.render('post', { 
+    res.render('one-post', { 
       post, 
       logged_in: req.session.logged_in
     });

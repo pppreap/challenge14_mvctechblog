@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //GET /api/users
@@ -86,7 +86,7 @@ router.post('/login', (req, res) => {
 })
 .then(dbUserData=> {
     if (!dbUserData) {
-        res.status(404).json({message:'No user found with this email address!'});
+        res.status(404).json({message:'No username found!'});
         return;
     }
     const validPassword = dbUserData.checkPassword(req.body.password);
@@ -116,7 +116,7 @@ router.post('/logout', (req, res) => {
 });
 
 // PUT user by id
-router.put('/:id', withAuth, (req, res) =>{
+router.put('/:id', (req, res) =>{
     User.update(req.body, {
         individualHooks:true,
         where: {
