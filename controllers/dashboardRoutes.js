@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
-
+const sequelize = require('../config/connection');
 
 // route to all post dashboard
 router.get('/', withAuth, (req, res) => {
@@ -9,15 +9,8 @@ router.get('/', withAuth, (req, res) => {
         where: {
             user_id: req.session.user_id
         },
-        attributes:[
-          'id', 'title', 'post_content', 'created_at'
-        ],
-        order:[['created_at', 'DESC']],
+        attributes:['id', 'title', 'post_content', 'created_at'],
         include:[
-            { 
-            model: User,
-            attributes:['username']
-            },
             {
             model: Comment,
             attributes:[
@@ -27,7 +20,11 @@ router.get('/', withAuth, (req, res) => {
               model: User,
               attributes:['username']
               }
-        }
+            },
+            { 
+              model: User,
+              attributes:['username']
+            }
         ]
     })
     .then((dbPostData)=> {
@@ -52,12 +49,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
       where:{
           id: req.params.id
       },
-      attributes:[
-        'id', 'title', 'post_content', 'created_at'
-      ],
+      attributes:['id', 'title', 'post_content', 'created_at'],
       include: [
           {
-          model:User,
+          model: User,
           attributes:['username']
           },
           {
