@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
-const { restore } = require('../../models/User');
 
 
 //GET /api/users
@@ -71,7 +70,7 @@ router.post('/', async(req, res) => {
             req.session.logged_in = true;
   
             res
-                    .status(201)
+                .status(201)
                 .json({message:`${userData.username} Username is Created!`});
 
         }); 
@@ -92,7 +91,7 @@ router.post('/login', async(req, res) => {
     });
     
     if (!userData) {
-        res.status(404).json({message:`Not a valid username, ${req.body.username}`});
+        res.status(400).json({message:`Not a valid username, ${req.body.username}`});
         return;
     }
     const validPassword = await userData.checkPassword(req.body.password);
@@ -123,7 +122,7 @@ router.post('/logout',  async (req, res) => {
         res.status(404).end();
     } 
     } catch {
-        res.status(404).end();
+        res.status(400).end();
     }
 });
 
