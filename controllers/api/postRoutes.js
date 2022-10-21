@@ -3,10 +3,11 @@ const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //GET  all posts
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     // console.log("=========");
-    Post.findAll({
-      attributes:[ 'id', 'title', 'post_text','created_at'],
+    try { 
+          const postData = await Post.findAll({
+        attributes:[ 'id', 'title', 'post_content','created_at'],
         order:[['created_at', 'DESC']],
         include:[
                  {
@@ -21,25 +22,24 @@ router.get('/', (req, res) => {
                     attributes:['username']
                     }
                 }
-                
                 ]
-                })
-                .then(dbPostData=> 
-                    res.json(dbPostData))
-                .catch (err=> {
-                    console.log(err);
-                    res.status(500).json(err);
                 });
+                res.status(200).json(postData.reverse());
+                } catch (err){
+                res.status(200).json(err);
+                }
                 });
  
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
     //access post model and use find one post by id
-        Post.findOne({
+        try {
+            const postData= await Post.findOne({
           where: {
             id: req.params.id
           },
-            attributes: [ 'id','title', 'post_text','created_at'],
+            attributes: [ 'id','title', 'post_content','created_at'],
+            order:[['created_at', 'DESC']],
                 include: [
                     {
                         model: User,
@@ -51,80 +51,81 @@ router.get('/:id', (req, res) => {
                          include: {
                             model: User,
                             attributes:['username']   
-                         }
-                }
-            ]
-        })
-        .then(dbPostData=>{
-            if (!dbPostData) {
-                res.status(404).json({message:'No post found with this id!'});
+                             }
+                    }
+                ]
+        });
+        
+            if (!postData) {
+                res.status(404).json({message:`No post found with this id = ${req.params.id}!`});
                 return;
             }
-            res.json(dbPostData);
-        })
-        .catch (err=> {
+            res.status(200).json(postData);
+        } catch (err) {
             console.log(err);
-            res.status(500).json(err);
-        });
+            res.status(400).json(err);
+        }
         });
 
 //POST 
-router.post('/', withAuth, (req, res) =>{
-        Post.create({
-            title: req.body.title,
-            post_text: req.body.post_text,
+router.post('/', withAuth, async(req, res) =>{
+    try{
+     const newPost = await Post.create({
+            ...req.body,
+            // title: req.body.title,
+            // post_content: req.body.post_content,
             user_id: req.session.user_id
-        }) 
-        .then(dbPostData=>
-            res.json(dbPostData))
-        .catch(err=>{
-                console.log(err);
-                res.status(500).json(err);
-            });
         });
+        res.status(200).json(newData);
+        } catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+    });
+
 //UPDATE
-router.put('/:id', withAuth, (req, res) =>{
-        Post.update({
+router.put('/:id', withAuth, async (req, res) =>{
+    try{
+        const updatePost = await Post.update({
             title: req.body.title,
-            post_text: req.body.post_text      
+            post_content: req.body.post_content     
             },
             {
              where: {
                 id: req.params.id
                  }
-            })
-             .then(dbPostData=>{
-             if (!dbPostData) {
+            });
+             if (!updateData) {
                 res.status(404).json({ message : 'No post with id!'});
                 return;
                 }
-                res.json(dbPostData);
-           })
-           .catch(err=>{
+                res.json(updateData);
+           } catch (err){
             console.log(err);
             res.status(500).json(err);
-        });
+        }
     });
 
 //DELETE
 
-router.delete('/:id', withAuth, (req, res) =>{
-    Post.destroy({
+router.delete('/:id', withAuth, async (req, res) =>{
+    try {
+        const postData = await Post.destroy({
          where: {
-            id: req.params.id
+            id: req.params.id,
+            user_id: req.session.user_id
              }
-        })
-         .then(dbPostData=>{
-         if (!dbPostData) {
-            res.status(404).json({ message : 'No post with id!'});
+        });
+      
+         if (!postData) {
+            res.status(404).json({ message : `No post  by user_id =${req.session.user_id} with id!= ${req.params.id}`});
             return;
             }
-            res.json(dbPostData);
-       })
-       .catch(err=>{
+            res.status(200).json(postData);
+       } catch(err) {
         console.log(err);
         res.status(500).json(err);
-    });
+    }
 });
 
 module.exports =router;
