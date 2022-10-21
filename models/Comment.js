@@ -7,8 +7,12 @@ Comment.init ({
         //defining each column
         id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             primaryKey: true,
             autoIncrement: true
+        },
+        comment_text:{
+            type: DataTypes.TEXT,
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -26,13 +30,7 @@ Comment.init ({
                 key: 'id'
             }
          },
-         comment_text:{
-         type: DataTypes.STRING,
-         allowNull: false,
-         validate: {
-            len:[2]
-         }
-        }
+       
     },
     {
     sequelize,
