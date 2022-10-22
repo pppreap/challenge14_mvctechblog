@@ -2,6 +2,7 @@
     box-sizing:border-box;
     color:#2A52BE;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
 }
 
 body , html {
@@ -19,7 +20,7 @@ h1 {
 }
 
 button {
-  background-color: yellow;
+  background-color: orange;
 }
 
 .tag {
@@ -37,7 +38,7 @@ button {
   color:black;
 }
 
-#post-content{
+#post-content, #post-title{
   background-color: bisque;
 }
 

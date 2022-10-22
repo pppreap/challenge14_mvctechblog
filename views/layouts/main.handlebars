@@ -13,16 +13,17 @@
    <header>
     <div>
       <h1 class="main-title">Tech Blog</h1>
-      <p>Share your thoughts on technology and coding</p>
+      <p>post content on tech and coding</p>
     </div>
    
        <nav>
        
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/" id="logout">Logout {{username}}</a>
-        <a href="/dashboard/create/" > + Create post</a>
-        <a href="/dashboard">Dashboard</a>
+        
+        <a href="/dashboard/create/" > + Create Post</a>
+        <a href="/dashboard"> Your Post Dashboard</a>
+        <a href="/" id="logout">Logout {{user.username}}</a>
         {{else}}
         <a href="/login">Login</a>
         <a href="/">Homepage</a>
