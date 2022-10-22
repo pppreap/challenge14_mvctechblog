@@ -20,7 +20,7 @@ try{
 router.get('/:id', async(req, res) => {
     //access user model and use find one user by id
         try{
-            const userData = await User.findOne({
+        const userData = await User.findOne({
           attributes:{ exclude: ['password'] },
           where: {
             id: req.params.id
@@ -62,9 +62,9 @@ router.get('/:id', async(req, res) => {
 router.post('/', async(req, res) => {
     //access user model and use find one user by id
         try {
-            const userData= await User.Create(req.body);
-      
-        req.session.save(()=>{
+            const userData = await User.Create(req.body);
+      console.table(req.body);
+        req.session.save(()=> {
             req.session.user_id = userData.id;
             req.session.username = userData.username;
             req.session.logged_in = true;
@@ -73,7 +73,7 @@ router.post('/', async(req, res) => {
                 .status(201)
                 .json({message:`${userData.username} Username is Created!`});
 
-        }); 
+          }); 
         } catch (err) {
             console.log(err);
             res.status(400).json(err);
@@ -85,9 +85,7 @@ router.post('/login', async(req, res) => {
     //access user model and use find one user by username
        try {
         const userData = await User.findOne({
-          where: {
-            username:req.body.username
-          }      
+          where: { username: req.body.username}      
     });
     
     if (!userData) {
