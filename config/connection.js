@@ -12,7 +12,7 @@ if (process.env.JAWSDB_URL) {
     {
       host: '0.0.0.0',
       dialect: 'mysql',
-      port: process.env.PORT || 3306;
+      port: process.env.PORT
     }
   );
 }
