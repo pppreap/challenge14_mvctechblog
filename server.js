@@ -23,8 +23,9 @@ const sess = {
     secure: false,
     sameSite: 'strict',
   },
-  resave: false,
+  resave: true,
   saveUninitialized: true,
+  rolling: true,
   store: new SequelizeStore({
     db: sequelize
   })
