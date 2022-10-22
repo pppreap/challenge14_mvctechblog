@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     // console.log("=========");
     try { 
           const postData = await Post.findAll({
-        attributes:[ 'id', 'title', 'post_content','created_at'],
+        attributes:[ 'id', 'title', 'content','created_at'],
         order:[['created_at', 'DESC']],
         include:[
                  {
@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
           where: {
             id: req.params.id
           },
-            attributes: [ 'id','title', 'post_content','created_at'],
+            attributes: [ 'id','title', 'content','created_at'],
             order:[['created_at', 'DESC']],
                 include: [
                     {
@@ -86,7 +86,7 @@ router.put('/:id', withAuth, async (req, res) =>{
     try{
         const updatePost = await Post.update({
             title: req.body.title,
-            post_content: req.body.post_content     
+            content: req.body.content     
             },
             {
              where: {

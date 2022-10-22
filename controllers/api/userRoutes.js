@@ -29,7 +29,7 @@ router.get('/:id', async(req, res) => {
             {
             model: Post,
             attributes: [
-                    'id','title', 'post_content', 'created_at']
+                    'id','title', 'content', 'created_at']
             },
             {
             model: Comment,
