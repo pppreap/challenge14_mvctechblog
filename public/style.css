@@ -10,6 +10,10 @@ body , html {
   font-family: 'Courier New', Courier, monospace;
 }
 
+header {
+  border: solid white 2px;
+}
+
 a {
     color:green;
     font-weight: bold;

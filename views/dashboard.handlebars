@@ -1,5 +1,5 @@
 
-  <h3> Your Dashboard</h3>
+  <h3> Your Post</h3>
 {{#if posts.length}}
 <section>
   
@@ -8,7 +8,7 @@
 {{> post-info post}}
 
     
-<a href="/dashboard/edit/{{post.id}}"><button class="edit-btn btn">Edit </button></a>
+<a href="/dashboard/edit/{{post.id}}"><button class="edit-btn btn">Edit the Post</button></a>
 </section>
 {{/each}}
 
