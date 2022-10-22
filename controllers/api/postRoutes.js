@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     // console.log("=========");
     Post.findAll({
         attributes:[ 'id', 'title', 'content','created_at'],
-        order:[['created_at', 'DESC']],
+        // order:[['created_at', 'DESC']],
         include:[
                  {
                 model: User,
@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
             id: req.params.id
           },
             attributes: [ 'id','title', 'content','created_at'],
-            order:[['created_at', 'DESC']],
+            // order:[['created_at', 'DESC']],
                 include: [
                     {
                         model: User,
