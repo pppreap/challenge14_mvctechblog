@@ -87,7 +87,7 @@ textarea, input {
   }
 
   footer {
-    border-top: 3px solid greenyellow;
+    border-top: 3px solid rgb(58, 6, 130);
     display: flex;
     justify-content: center;
     padding: 2%;

@@ -12,22 +12,7 @@ router.get('/', (req, res) => {
         });
 });
 
-// router.get('/:id', async (req, res) => {
-//     try {
-//         const commentData = await Comment.findAll({
-//             where: { id: req.params.id },
-//         });
-//         if (commentData.length === 0){
-//             res
-//                .status(404)
-//                .json({message: `There is no comment with id =${req.params.id}`});
-//            return;    
-//         }
-//         res.status(200).json(commentData);
-//     }catch (err) {
-//         res.status(500).json(err);
-//     }
-//     });
+
 
 router.post('/', withAuth, (req, res) => {
     if (req.session){
@@ -42,31 +27,6 @@ router.post('/', withAuth, (req, res) => {
           });
       }
     });
-
-//PUT   create comment
-// router.put('/:id', withAuth, async (req, res) =>{
-//     try {
-//         const updateComment = await Comment.update (
-//         {
-//           comment_text: req.body.comment_text   
-//          },
-//         {
-//            where: { 
-//             id: req.params.id 
-//             }
-//        }
-//      );
-//     if (!updateComment) {
-//         res
-//         .status(404)
-//         .json({message: `There is no comment with id =${req.params.id}`});
-//     return;    
-//  }
-//  res.status(200).json(updateComment);
-// } catch (err) {
-//  res.status(400).json(err);
-// }
-// });
 
 
 //DELETE comment
