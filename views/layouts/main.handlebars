@@ -21,8 +21,8 @@
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         
-        <a href="/dashboard/create/" > + Create Post</a>
-        <a href="/dashboard"> Your Post Dashboard</a>
+        <a href="/dashboard/create/" > Create Post</a><br>
+        <a href="/dashboard"> Your Post Dashboard</a><br>
         <a href="/" id="logout">Logout {{user.username}}</a>
         {{else}}
         <a href="/login">Login</a>

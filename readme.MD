@@ -2,7 +2,7 @@
 
 Using MVC paradigm in the code architectural structure, Handlebars.js as the templating language, Sequelize as the ORM and express-session npm packgae for authentication, a CMS-style blog site similar to a Wordpress site, will be built for developers to publish their blog posts and comment on other developer's post as well.
 
-Link to [Website Blog]:(https://)
+Link to [Website Blog]:(https://fierce-journey-52566.herokuapp.com/)
 
 # User Story for Tech Blog
 
@@ -80,7 +80,7 @@ Login/SignUp, Logout, View/Delete/Add/Update Post Content, Add/Update/Delete Com
 #### Links
 [Github Repository](https://github.com/pppreap/challenge14_mvctechblog) 
 ///
-[Blog Website](https://)
+[Blog Website](https://fierce-journey-52566.herokuapp.com/)
 
 #### Credits
 User Story and Criteria from Michigan State University Full Stack Development Boot Camp.

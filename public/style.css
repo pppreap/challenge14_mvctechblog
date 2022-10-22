@@ -1,7 +1,7 @@
 * {
     box-sizing:border-box;
     color:orange;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: black;
 }
 
@@ -11,12 +11,11 @@ body , html {
 }
 
 header {
-  border: solid white 2px;
+  border: dotted white 1px;
 }
 
 a {
     color:green;
-    font-weight: bold;
 }
 
 h1 {
@@ -27,8 +26,12 @@ button {
   background-color: purple;
 }
 
+p {
+font-style: italic;
+}
+
 .tag {
-  font-size: 50%;
+  font-size: 75%;
   margin: 3px;
   color:antiquewhite;
 }
@@ -40,7 +43,7 @@ button {
 
 
 #textarea {
-  color:black;
+  color:orange;
 }
 
 #post-content, #post-title{
