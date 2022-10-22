@@ -9,28 +9,28 @@
 </head>
 
 <body>
-  
-       <nav>
-         
-         
-         <a href="/">Homepage</a>
-         <a href="/dashboard">Dashboard</a>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/" id="logout">Logout [{{username}}]</a>
-    
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-
-      </nav>
 
    <header>
     <div>
       <h1 class="main-title">TECH BLOG</h1>
       <p>Share your thoughts on technology and coding</p>
     </div>
-   </header>
+   
+       <nav>
+       
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/" id="logout">Logout [{{username}}]</a>
+        <a href="/dashboard/create/" > + create post</a>
+        <a href="/dashboard">Dashboard</a>
+        {{else}}
+        <a href="/login">Login</a>
+        <a href="/">Homepage</a>
+        {{/if}}
+
+      </nav>
+
+  </header>
      
     <main>
       <!-- Render the sub layout -->
@@ -45,7 +45,6 @@
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="./js/logout.js"></script>
-    
   {{/if}}
   
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

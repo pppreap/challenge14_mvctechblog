@@ -1,8 +1,6 @@
  <div class="comments">
   {{#each this}}
-   <div class="card">
-    <h2 class="card-header"></h2>
-   <section class="comment card-body">
+   <section class="comment">
        <div class="tag">
         -{{user.username}} on {{format_date created_at}}
        </div>
@@ -10,6 +8,6 @@
         {{comment_text}}
         </div>
    </section>
-   </div>
+  
  {{/each}}
   </div>

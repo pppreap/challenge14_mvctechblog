@@ -10,12 +10,12 @@
         
     
     <button type ="submit" class="btn">Save Changes</button> 
-    <button type ="button" class="delete-btn">Delete </button> 
+    <button type ="button" class="delete-btn btn">Delete </button> 
     </form>
 
 </section>
     
-  
-
+{{> comments post.comments}}
+<script src="/javascript/comment.js"></script>
 <script src="/js/edit-post.js"></script>
 <script src="/js/delete-post.js"></script>

@@ -34,7 +34,7 @@ router.get('/', withAuth, (req, res) => {
     res.render('dashboard', { 
       posts,
       logged_in: true,
-      username: req.session.username
+      // username: req.session.username
     });
     })
     .catch ((err)=> {
@@ -79,7 +79,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       res.render('edit-post', { 
         post, 
         logged_in: true,
-        username: req.session.username,
+        // username: req.session.username,
       });
     })
     .catch ((err)=> {
@@ -88,9 +88,45 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
   });
 
-  router.get('/new', (req, res) => {
-    res.render('new-post', { username: req.session.username } );
-  });
+  // router.get('/new', (req, res) => {
+  //   res.render('new-post', { username: req.session.username } );
+  // });
   
 
+  router.get('/new/', withAuth, (req, res) => {
+    Post.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      attributes: [
+        'id','title','created_at','content'
+      ],
+      include: [
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
+        },
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+    })
+      .then(dbPostData => {
+        // serialize data before passing to template
+        const posts = dbPostData.map(post => post.get({ plain: true }));
+        res.render('new-post', { posts, loggedIn: true });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+
 module.exports = router;
+

@@ -5,15 +5,16 @@
     <h3> Dashboard</h3>
     {{#each posts as |post|}}
   
-        {{> dashboard-post-info post}}
+        {{> post-info post}}
 
-    {{/each}}
-
-
+    
+<a href="/dashboard/edit/{{post.id}}"><button class="edit-btn btn">edit post</button></a>
 </section>
+{{/each}}
+
+
+
+<a href="/dashboard/create"><button type="submit"  class="btn">+ New Post</button></a>
+
+
 {{/if}}
-
-<button type="submit" class="btn"><a href="/dashboard/new"> + New Post</a></button>
-
-
-<script src="/js/add-post.js"></script>
