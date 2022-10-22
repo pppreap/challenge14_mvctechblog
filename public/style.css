@@ -15,7 +15,7 @@ body, html {
 header {
   border: dotted white 1px;
   margin-left: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 main {
@@ -37,6 +37,7 @@ h1 {
 }
 
 button {
+  margin-top: 5px;
   background-color: purple;
 }
 
@@ -109,9 +110,10 @@ textarea, input {
   }
 
   footer {
+    margin-top: 10px;
     border-top: 3px solid green;
     display: flex;
     justify-content: center;
     padding: 2%;
-    font-size: 75%;
+    font-size: 100%;
   }
