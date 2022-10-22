@@ -119,7 +119,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       .then(dbPostData => {
         // serialize data before passing to template
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('new-post', { posts, loggedIn: true });
+        res.render('create-post', { posts, loggedIn: true });
       })
       .catch(err => {
         console.log(err);
