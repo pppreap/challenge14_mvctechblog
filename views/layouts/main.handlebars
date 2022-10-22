@@ -9,28 +9,28 @@
 </head>
 
 <body>
-    <div>
-     <header>
-     <h3> Share your thoughts on technology and coding</h3>
-     <div>
+  
        <nav>
+         
+         
          <a href="/">Homepage</a>
          <a href="/dashboard">Dashboard</a>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/" id="logout">Logout</a>
+        <a href="/" id="logout">Logout [{{username}}]</a>
     
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">Login</a>
         {{/if}}
+
       </nav>
-      </div>
-   
+
+   <header>
     <div>
       <h1 class="main-title">TECH BLOG</h1>
+      <p>Share your thoughts on technology and coding</p>
     </div>
-    
-     </header>
+   </header>
      
     <main>
       <!-- Render the sub layout -->
@@ -41,16 +41,16 @@
       Leave your tips!
     </footer>
 
-  </div>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="./js/logout.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    
+  {{/if}}
+  
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
-  {{/if}}
-
 </body>
 
 </html>

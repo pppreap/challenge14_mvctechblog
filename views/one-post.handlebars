@@ -1,13 +1,14 @@
 {{> post-info post}}
 {{#if logged_in}}
+<div>
 <form class="comment-form" id="comment-form">
-<div>
-    <input name="comment-body"></input>
-</div>
-<div>
-    <button type ="submit">Add Comment</button> 
-</div>
+  <label class="form-label">Comment</label>
+  <input id="comment" name="comment-body" class="form-input" />
+
+<button type ="submit">Add Comment</button> 
+
 </form>
+</div>
 {{/if}}
 
 {{> comments post.comments}}
