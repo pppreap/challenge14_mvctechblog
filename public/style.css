@@ -10,7 +10,7 @@ body , html {
 }
 
 a {
-    color:brown;
+    color:green;
     font-weight: bold;
 }
 
@@ -29,30 +29,23 @@ button {
 
 .main-title {
   color:purple;
-}
-
-#logout-btn {
-    border-radius: 10px;
-    background-color: beige;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
-#comment{
-  color:green;
+#textarea {
+  color:black;
 }
 
-#text {
-  color:aquamarine;
-}
-
-#post{
+#post-content{
   background-color: bisque;
 }
 
 #btn{
   color:azure;
 }
-.delete-btn {
+
+#delete-btn {
     background-color: #a72525;
   }
 
@@ -66,7 +59,7 @@ textarea, input {
     display: block;
   }
 
-  .post {
+  .post-title {
     color: orange;
   }
 
@@ -87,7 +80,7 @@ textarea, input {
   }
 
   footer {
-    border-top: 3px solid rgb(58, 6, 130);
+    border-top: 3px solid black;
     display: flex;
     justify-content: center;
     padding: 2%;
