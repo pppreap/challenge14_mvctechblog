@@ -12,10 +12,16 @@ body , html {
 
 header {
   border: dotted white 1px;
+ 
 }
 
 a {
     color:green;
+    padding: 2px;
+}
+
+a:hover {
+  background-color: purple;
 }
 
 h1 {
@@ -36,7 +42,12 @@ font-style: italic;
   color:antiquewhite;
 }
 
+.phrase {
+  align-content: flex-end;
+}
+
 .main-title {
+  align-items: flex-end;
   color:purple;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
