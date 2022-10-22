@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
-
+const withAuth = require('../../utils/auth');
 
 //GET /api/users
 router.get('/', async(req, res) => {
@@ -59,40 +59,36 @@ router.get('/:id', async(req, res) => {
 });
 
 //POST /api/user
-router.post('/', async(req, res) => {
+router.post('/', (req, res) => {
     //access user model and use find one user by id
-        try {
-            const userData = await User.Create(req.body);
-      console.table(req.body);
-        req.session.save(()=> {
+         User.Create({
+            username: req.body.username,
+            password: req.body.password 
+         })
+         .then(userData => {
+            req.session.save(()=> {
             req.session.user_id = userData.id;
             req.session.username = userData.username;
             req.session.logged_in = true;
   
-            res
-                .status(201)
-                .json({message:`${userData.username} Username is Created!`});
-
-          }); 
-        } catch (err) {
-            console.log(err);
-            res.status(400).json(err);
-        }
+            res.json(userData);
+            });
         });
+    });
 
 //login
-router.post('/login', async(req, res) => {
+router.post('/login',(req, res) => {
     //access user model and use find one user by username
-       try {
-        const userData = await User.findOne({
+      User.findOne({
           where: { username: req.body.username}      
-    });
+    })
+    .then(userData => {
     
     if (!userData) {
         res.status(400).json({message:`Not a valid username, ${req.body.username}`});
         return;
     }
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = userData.checkPassword(req.body.password);
     if (!validPassword) {
         res.status(400).json({message: "Not a Valid Password!"});
         return;
@@ -104,10 +100,8 @@ router.post('/login', async(req, res) => {
         req.session.logged_in = true;
 
         res.json({user: userData, message: "Logged In Successfully!"});
- });
- } catch (err){
-    res.status(400).json(err);
- }
+        });
+    });
  });
 
 router.post('/logout',  async (req, res) => {
