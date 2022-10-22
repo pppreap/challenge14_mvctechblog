@@ -26,6 +26,7 @@ main {
 a {
     color:green;
     padding: 2px;
+    font-weight: 100;
 }
 
 a:hover {
