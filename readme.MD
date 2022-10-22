@@ -72,10 +72,14 @@ These are images which demonstrates the application functionality:
 
 Login/SignUp, Logout, View/Delete/Add/Update Post Content, Add/Update/Delete Comment, Navigate to Dashboard
 
-![Start of the application](./assets/)
-![Saved Posts](./assets/)
-![Click New Post](./assets/)
-![Show/Hide Image](./assets/)
+![Start of the application](./assets/homepage.png)
+![Login Signup](./assets/loginsignup.png)
+![Nav Links Dashboard](./assets/navlinks.png)
+![Create New Post](./assets/create.png)
+![Edit Delete Post](./assets/edit.png)
+![Comment on Post](./assets/comment.png)
+
+
 
 #### Links
 [Github Repository](https://github.com/pppreap/challenge14_mvctechblog) 
