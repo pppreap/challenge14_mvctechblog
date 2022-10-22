@@ -1,6 +1,6 @@
 * {
     box-sizing:border-box;
-    color:#2A52BE;
+    color:orange;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: black;
 }
@@ -20,12 +20,13 @@ h1 {
 }
 
 button {
-  background-color: orange;
+  background-color: purple;
 }
 
 .tag {
   font-size: 50%;
   margin: 3px;
+  color:antiquewhite;
 }
 
 .main-title {
@@ -81,7 +82,7 @@ textarea, input {
   }
 
   footer {
-    border-top: 3px solid black;
+    border-top: 3px solid green;
     display: flex;
     justify-content: center;
     padding: 2%;
