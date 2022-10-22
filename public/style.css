@@ -3,16 +3,22 @@
     color:orange;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: black;
+  
 }
 
-body , html {
-  color:orange;
+body, html {
+  color: orange;
   font-family: 'Courier New', Courier, monospace;
+  margin-left: 10px;
 }
 
 header {
   border: dotted white 1px;
- 
+  margin-left: 10px;
+}
+
+main {
+  margin-left: 10px;
 }
 
 a {
@@ -40,6 +46,7 @@ font-style: italic;
   font-size: 75%;
   margin: 3px;
   color:antiquewhite;
+  border-radius: dotted white 1px;
 }
 
 .phrase {
